@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">FacilityFix</title>
+  <rect x="6" y="8" width="26" height="34" rx="3" fill="none" stroke="#8b95a5" stroke-width="2.4"/>
+  <rect x="12" y="14" width="6" height="6" rx="0.8" fill="#8b95a5" opacity="0.55"/>
+  <rect x="20" y="14" width="6" height="6" rx="0.8" fill="#8b95a5" opacity="0.55"/>
+  <rect x="12" y="24" width="6" height="6" rx="0.8" fill="#8b95a5" opacity="0.35"/>
+  <rect x="20" y="24" width="6" height="6" rx="0.8" fill="#8b95a5" opacity="0.35"/>
+  <path d="M32 28h8a4 4 0 0 1 4 4v10H22v-6h10z" fill="#c4843a"/>
+  <path d="M26 36h6v6h-6z" fill="#1c2128"/>
+</svg>

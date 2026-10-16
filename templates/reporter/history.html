@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}My issues{% endblock %}
+{% block content %}<div class="page-heading"><div><p class="eyebrow">Your facility reports</p><h1>My issues</h1><p class="muted">Track your reports, review resolutions and reopen issues that remain unfixed.</p></div><a class="button primary" href="{{ url_for('reporter.new_issue') }}">+ Report an issue</a></div>
+<section class="panel"><div class="section-heading"><h2>Issue history</h2><span class="muted">{{ issues|length }} report{{ '' if issues|length == 1 else 's' }}</span></div>{% include 'issues/list.html' %}</section>{% endblock %}

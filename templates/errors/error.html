@@ -1,0 +1,2 @@
+{% extends 'base.html' %}{% block title %}Error {{ code }}{% endblock %}
+{% block content %}<section class="empty"><p class="eyebrow">Error {{ code }}</p><h1>We couldn’t complete that request</h1><p>{{ message }}</p><a class="button primary" href="{{ url_for('auth.home') }}">Return to start</a></section>{% endblock %}

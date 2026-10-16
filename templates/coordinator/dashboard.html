@@ -1,0 +1,62 @@
+{% extends 'base.html' %}{% block title %}Coordinator dashboard{% endblock %}
+{% block content %}
+<div class="page-heading">
+  <div>
+    <p class="eyebrow">Facility Coordinator</p>
+    <h1>Issue dashboard</h1>
+    <p class="muted">Review reports, assign priority, and keep work moving.</p>
+  </div>
+  <span class="context-label">All facility issues</span>
+</div>
+<section class="summary-grid" aria-label="Issue counts, independent of filters">
+  <div class="summary all"><span>All issues</span><strong>{{ total }}</strong></div>
+  {% for status in statuses %}
+  <div class="summary {{ status|lower|replace(' ', '-') }}"><span>{{ status }}</span><strong>{{ counts.get(status, 0) }}</strong></div>
+  {% endfor %}
+</section>
+<section class="panel">
+  <div class="section-heading">
+    <div><h2>Facility issues</h2><p class="help">Filters apply to the list only. Counts include every issue.</p></div>
+    <span class="muted">{{ issues|length }} result{{ '' if issues|length == 1 else 's' }}</span>
+  </div>
+  <form method="get" class="filters" action="{{ url_for('coordinator.dashboard') }}">
+    <div>
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="">All statuses</option>
+        {% for item in statuses %}<option {% if filters.get('status') == item %}selected{% endif %}>{{ item }}</option>{% endfor %}
+      </select>
+    </div>
+    <div>
+      <label for="category">Category</label>
+      <select id="category" name="category">
+        <option value="">All categories</option>
+        {% for item in categories %}<option {% if filters.get('category') == item %}selected{% endif %}>{{ item }}</option>{% endfor %}
+      </select>
+    </div>
+    <div>
+      <label for="building">Building / Block</label>
+      <select id="building" name="building">
+        <option value="">All buildings</option>
+        {% for item in buildings %}<option {% if filters.get('building') == item %}selected{% endif %}>{{ item }}</option>{% endfor %}
+      </select>
+    </div>
+    <div>
+      <label for="date">Submitted date (UTC)</label>
+      <input type="date" name="date" id="date" value="{{ filters.get('date', '') }}">
+    </div>
+    <div>
+      <label for="priority">Final priority</label>
+      <select id="priority" name="priority">
+        <option value="">All priorities</option>
+        {% for item in priorities %}<option {% if filters.get('priority') == item %}selected{% endif %}>{{ item }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button class="button primary" type="submit">Apply filters</button>
+      <a class="text-link" href="{{ url_for('coordinator.dashboard') }}">Clear</a>
+    </div>
+  </form>
+  {% include 'issues/list.html' %}
+</section>
+{% endblock %}

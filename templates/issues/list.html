@@ -1,0 +1,11 @@
+{% if issues %}<div class="table-wrap" role="region" aria-label="Issue list" tabindex="0"><table>
+<thead><tr><th scope="col">Issue / category</th><th scope="col">Location</th><th scope="col">Final priority</th><th scope="col">Status</th><th scope="col">Submitted (UTC)</th><th scope="col">Action</th></tr></thead>
+<tbody>{% for issue in issues %}<tr>
+<td><span class="issue-id">#{{ '%04d'|format(issue.id) }}</span><strong>{{ issue.category }}</strong></td>
+<td>{{ issue.building }}<small>{{ issue.floor }} · {{ issue.room }}</small></td>
+<td><span class="priority {{ (issue.final_priority or '')|lower }}">{{ issue.final_priority or 'Not assigned' }}</span></td>
+<td><span class="badge {{ issue.status|lower|replace(' ', '-') }}">{{ issue.status }}</span></td>
+<td class="date">{{ issue.created_at[:10] }}<small>{{ issue.created_at[11:16] }}</small></td>
+<td><a class="text-link" href="{{ url_for('reporter.detail', issue_id=issue.id) }}" aria-label="View issue {{ issue.id }}">View <span aria-hidden="true">↗</span></a></td>
+</tr>{% endfor %}</tbody></table></div>
+{% else %}<div class="empty"><h2>No issues to display</h2><p>{% if g.user.role == 'Facility Coordinator' %}No records match this view. Try clearing the filters if any are selected.{% else %}Your submitted issues will appear here so you can follow their progress.{% endif %}</p></div>{% endif %}

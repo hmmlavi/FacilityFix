@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Sign in{% endblock %}
+{% block content %}
+<section class="login-layout">
+  <div class="login-intro">
+    <p class="eyebrow">Facility reporting</p>
+    <h1>Report a problem.<br>Track the progress.</h1>
+    <p>Students, faculty and staff submit facility issues. The coordinator sets priority and records the resolution.</p>
+    <ol class="steps">
+      <li>Describe what needs attention</li>
+      <li>Follow status as work proceeds</li>
+      <li>Review the resolution, or reopen if needed</li>
+    </ol>
+  </div>
+  <section class="panel login-panel" aria-labelledby="sign-in">
+    <p class="eyebrow">Welcome</p>
+    <h2 id="sign-in">Sign in</h2>
+    <p class="muted">Use the account created for this project.</p>
+    <form method="post">
+      <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+      <label for="username">Username <span class="required">*</span></label>
+      <input id="username" name="username" required minlength="3" maxlength="50" autocomplete="username" value="{{ request.form.get('username', '') }}">
+      <label for="password">Password <span class="required">*</span></label>
+      <input type="password" id="password" name="password" required minlength="12" maxlength="128" autocomplete="current-password">
+      <button class="button primary full" type="submit">Sign in</button>
+    </form>
+    <p class="help">Accounts are created locally. Public registration is not available.</p>
+  </section>
+</section>
+{% endblock %}

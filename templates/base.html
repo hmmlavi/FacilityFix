@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>{% block title %}FacilityFix{% endblock %} · FacilityFix</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="{{ url_for('auth.home') }}">
+    <img src="{{ url_for('static', filename='img/logo.svg') }}" width="30" height="30" alt="">
+    FacilityFix
+  </a>
+  {% if g.user %}<nav aria-label="Main navigation">
+    {% if g.user.role == 'Facility Coordinator' %}
+      <a href="{{ url_for('coordinator.dashboard') }}" {% if request.endpoint == 'coordinator.dashboard' %}aria-current="page"{% endif %}>Dashboard</a>
+    {% else %}
+      <a href="{{ url_for('reporter.history') }}" {% if request.endpoint == 'reporter.history' %}aria-current="page"{% endif %}>My issues</a>
+      <a href="{{ url_for('reporter.new_issue') }}" {% if request.endpoint == 'reporter.new_issue' %}aria-current="page"{% endif %}>Report</a>
+    {% endif %}
+  </nav>
+  <div class="account">
+    <span>{{ g.user.name }}<small>{{ g.user.role }}</small></span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">◐</button>
+    <form method="post" action="{{ url_for('auth.logout') }}">
+      <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+      <button class="button quiet" type="submit">Sign out</button>
+    </form>
+  </div>
+  {% else %}
+  <span class="header-note">College facility reporting</span>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">◐</button>
+  {% endif %}
+</div></header>
+<main id="main" class="container">
+{% for category, message in get_flashed_messages(with_categories=true) %}<div class="notice {{ category }}" role="status">{{ message }}</div>{% endfor %}
+{% if error %}<div class="notice error" role="alert">{{ error }}</div>{% endif %}
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">FacilityFix <span>College facility reporting &amp; tracking</span></footer>
+</body>
+</html>
