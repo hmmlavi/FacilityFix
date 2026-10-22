@@ -65,72 +65,34 @@ FacilityFix provides:
 
 ## Screenshots
 
-The screenshots below demonstrate the application's interface and selected workflow stages.
+Screenshots of the existing reporter and coordinator workflows, shown two at a time.
 
-> Ensure these image files are uploaded to the repository under the exact lowercase `screenshots/` directory.
-
-### 01. Login
-
-![FacilityFix Login](screenshots/01-login-page.png)
-
-*The login page for registered users.*
-
-### 02. Reporter Dashboard
-
-![Reporter Dashboard](screenshots/02-student-dashboard.png)
-
-*The main dashboard for accessing reporter features.*
-
-### 03. Issue Reporting Form
-
-<p align="center">
-  <img src="screenshots/03-issue-form-top.png" alt="Issue reporting form top" width="49%">
-  <img src="screenshots/04-issue-form-bottom.png" alt="Issue reporting form bottom" width="49%">
-</p>
-
-*The form used to submit a facility issue.*
-
-### 04. Issue Submission
-
-![Issue Submitted](screenshots/05-issue-submitted.png)
-
-*The interface following issue submission.*
-
-### 05. My Issues
-
-![My Issues](screenshots/06-my-issues.png)
-
-*The reporter's issue list and tracking view.*
-
-### 06. Coordinator Dashboard
-
-![Coordinator Dashboard](screenshots/07-coordinator-dashboard.png)
-
-*The Facility Coordinator's dashboard.*
-
-### 07. Issue Management
-
-![Issue Management](screenshots/08-issue-management.png)
-
-*The coordinator's issue management interface.*
-
-### 08. Issue In Progress
-
-![Issue In Progress](screenshots/09-issue-in-progress.png)
-
-*An example of an issue in progress.*
-
-### 09. Issue Resolved
-
-![Issue Resolved](screenshots/10-issue-resolved.png)
-
-*An example of a resolved issue.*
-
-### 10. Automated Test Results
-
-![Automated Test Results](screenshots/11-test-results.png)
-
-*Recorded output from the automated test suite.*
+<table>
+<tr>
+<td width="50%"><img src="screenshots/01-login-page.png" alt="FacilityFix login page"><br><sub><b>Login.</b> Sign in to a registered account.</sub></td>
+<td width="50%"><img src="screenshots/02-student-dashboard.png" alt="Reporter dashboard showing issue history"><br><sub><b>Reporter dashboard.</b> View submitted issues and start a report.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="screenshots/03-issue-form-top.png" alt="Top of the facility issue reporting form"><br><sub><b>Report an issue.</b> Describe the problem and select its category.</sub></td>
+<td width="50%"><img src="screenshots/04-issue-form-bottom.png" alt="Bottom of the facility issue reporting form"><br><sub><b>Report details.</b> Add the location, priority suggestion, and an optional photo.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="screenshots/05-issue-submitted.png" alt="Issue details after successful submission"><br><sub><b>Submission.</b> Review a newly submitted issue.</sub></td>
+<td width="50%"><img src="screenshots/06-my-issues.png" alt="Reporter issue history"><br><sub><b>My issues.</b> Track issue status and progress.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="screenshots/07-coordinator-dashboard.png" alt="Facility Coordinator dashboard"><br><sub><b>Coordinator dashboard.</b> Review the facility issue queue.</sub></td>
+<td width="50%"><img src="screenshots/08-issue-management.png" alt="Coordinator issue management view"><br><sub><b>Issue management.</b> Set priority and manage a report.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="screenshots/09-issue-in-progress.png" alt="Issue marked in progress"><br><sub><b>In progress.</b> Follow work on an active issue.</sub></td>
+<td width="50%"><img src="screenshots/10-issue-resolved.png" alt="Resolved facility issue"><br><sub><b>Resolved.</b> Review the resolution and final status.</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="screenshots/11-test-results.png" alt="Automated test results"><br><sub><b>Automated tests.</b> Recorded test suite results.</sub></td>
+<td width="50%"></td>
+</tr>
+</table>
 
 ---
 
