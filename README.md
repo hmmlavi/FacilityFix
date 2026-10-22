@@ -298,7 +298,20 @@ FacilityFix/
 
 ## Installation
 
-Follow these steps to run FacilityFix on your local machine.
+### Quick start
+
+Download and extract the release, then:
+
+- **Windows:** double-click `Start FacilityFix.bat`.
+- **macOS/Linux:** open a terminal in the extracted folder and run `sh start.sh`.
+
+The launcher creates a private Python environment, installs the requirements, initializes the SQLite database, and asks you to create the first Facility Coordinator account. It then starts FacilityFix at **http://127.0.0.1:5000**. Keep the launcher window open while using the app; press Ctrl+C there to stop it. On later starts, use the same launcher and sign in with your existing account.
+
+Python 3.11 or newer and an internet connection for the first dependency installation are required. Your database, generated secret, and uploaded photos remain in the extracted folder (`instance/` and `uploads/`). Keep that folder to retain your data.
+
+### Manual setup
+
+The steps below are for development or manual installation.
 
 ### Prerequisites
 
